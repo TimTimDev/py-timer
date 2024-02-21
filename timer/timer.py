@@ -1,44 +1,15 @@
-import time
 from playsound import playsound
-from os import system, name 
 import tkinter as tk
 import tkinter.ttk as ttk
 
 count = 60
 running = False
 
-def clear(): 
-
-    # for windows 
-    if name == 'nt': 
-        _ = system('cls') 
-
-def ask_input():
-    userin = input("Press 'y' to (re)start timer: ")
-    if userin == 'y':
-        clear()
-        start_counter()
-
 def reset():
     global count
     count = 60
     sec_label['text'] = 'Time Left: ' + str(count)
     window.update()
-
-''' def start_counter(): 
-    global count
-    while count > 0:
-        time.sleep(1)
-        count -= 1
-        # print('Time Left: ' + str(count), end='\r')
-        sec_label['text'] = 'Time Left: ' + str(count)
-        window.update()
-        if count == 0:
-            playsound("C:/Users/timoo/OneDrive/Töölaud/timer/timer_alarm.mp3")
-            reset()
-            sec_label['text'] = 'Time Left: ' + str(count)
-            break
-            # ask_input() '''
 
 def start_counter():
     global running
@@ -60,11 +31,6 @@ def counter():
 def stop_counter():
     global running
     running = False
-
-
-
-
-# ask_input()
 
 
 window = tk.Tk()
@@ -98,4 +64,3 @@ seconds = sec_entry.get()
 minutes = min_entry.get()
 window.after(1000, counter)
 window.mainloop()
-
